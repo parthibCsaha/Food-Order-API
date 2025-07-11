@@ -36,7 +36,8 @@ The project follows a layered architecture:
 - **Models** – JPA entities  
 ----
 ### Entity Relationship Diagram
-```mermaidclassDiagram
+```mermaid
+classDiagram
     class User {
         +Long id
         +String firstName
