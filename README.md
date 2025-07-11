@@ -38,10 +38,10 @@ The project follows a layered architecture:
 ### Entity Relationship Diagram
 ```mermaid
 erDiagram
-    USER ||--o{ FINAL_ORDER    : places
-    FINAL_ORDER ||--o{ ORDER_ITEM   : contains
-    ORDER_ITEM }|--|| MEAL          : refers_to
-    MEAL }|--|| MEAL_TYPE          : categorized_as
+    User "1" -- "many" FinalOrder : places >
+    FinalOrder "1" -- "many" OrderItem : contains >
+    Meal "1" -- "many" OrderItem : refers_to >
+    MealType "1" -- "many" Meal : categorizes >
 
     USER {
       Long id PK
