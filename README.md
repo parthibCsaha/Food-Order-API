@@ -95,7 +95,7 @@ classDiagram
 ----
 ## Technologies Used
   - Java 21
-  - Spring Boot 3.x
+  - Spring Boot 
   - Spring Data JPA
   - Spring Security (JWT)
   - PostgreSQL
