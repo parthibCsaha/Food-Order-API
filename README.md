@@ -36,64 +36,60 @@ The project follows a layered architecture:
 - **Models** – JPA entities  
 ----
 ### Entity Relationship Diagram
-```mermaid
-erDiagram
+```mermaidclassDiagram
+    class User {
+        +Long id
+        +String firstName
+        +String lastName
+        +String username
+        +String email
+        +String password
+        +Role role
+        +String phoneNumber
+        +String address
+        +Boolean deleted
+    }
+    class FinalOrder {
+        +Long id
+        +Date date
+        +int finalPrice
+        +String address
+        +String phoneNumber
+        +String status
+    }
+    class OrderItem {
+        +Long id
+        +String mealName
+        +int mealPrice
+        +String mealDescription
+        +String mealImage
+        +String mealImageName
+        +String mealTypeName
+        +int quantity
+    }
+    class Meal {
+        +Long id
+        +String name
+        +int price
+        +String image
+        +String imageName
+        +String description
+        +Boolean isDeleted
+    }
+    class MealType {
+        +Long id
+        +String typeName
+        +String image
+        +String imageName
+        +String description
+        +Boolean isDeleted
+    }
+
     User "1" -- "many" FinalOrder : places >
     FinalOrder "1" -- "many" OrderItem : contains >
-    Meal "1" -- "many" OrderItem : refers_to >
+    Meal "1" -- "many" OrderItem : appears in >
     MealType "1" -- "many" Meal : categorizes >
 
-    USER {
-      Long id PK
-      String firstName
-      String lastName
-      String username
-      String email
-      String password
-      String role
-      String phoneNumber
-      String address
-      Boolean deleted
-    }
-    FINAL_ORDER {
-      Long id PK
-      Long users_id FK
-      Date date
-      Integer finalPrice
-      String address
-      String phoneNumber
-      String status
-    }
-    ORDER_ITEM {
-      Long id PK
-      Long finalOrder_id FK
-      Long meal_id FK
-      String mealName
-      Integer mealPrice
-      String mealDescription
-      String mealImage
-      String mealImageName
-      String mealTypeName
-      Integer quantity
-    }
-    MEAL {
-      Long id PK
-      Long mealType_id FK
-      String name
-      Integer price
-      String image
-      String imageName
-      String description
-      Boolean isDeleted
-    }
-    MEAL_TYPE {
-      Long id PK
-      String typeName
-      String image
-      String imageName
-      String description
-      Boolean isDeleted
-    }
 ```
 ----
 ## Technologies Used
